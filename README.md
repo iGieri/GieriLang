@@ -3,7 +3,7 @@ The language that has lots pros and no cons
 
 It is a really simple language, for everyone.
 
-Start to Code with:
+### Start to Code with:
 
 `print:Hello World!`   
 
