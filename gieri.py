@@ -1,3 +1,10 @@
+# useful functions
+def isfloat(element):
+    try:
+        float(element)
+        return True
+    except ValueError:
+        return False
 # Global variables
 FILE = "main.gieri"  # Let's define our source code TODO: define this global variable as argument
 
@@ -34,7 +41,13 @@ for line in lines:
                 full = True
         if full:
             var = everything[1].split("=")
-            variables[var[0]] = var[1]
+            if var[1].isdecimal():
+                variables[var[0]] = int(var[1])
+            elif isfloat(var[1]):
+                variables[var[0]] = float(var[1])
+            else:
+                variables[var[0]] = var[1]
+
         else:
             type = everything[1].split("@")
             try:
