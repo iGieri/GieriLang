@@ -1,10 +1,3 @@
-# useful functions
-def isfloat(element):
-    try:
-        float(element)
-        return True
-    except ValueError:
-        return False
 # Global variables
 FILE = "main.gieri"  # Let's define our source code TODO: define this global variable as argument
 
@@ -63,6 +56,23 @@ for line in lines:
             except IndexError:
                 print(f"Error at Line {i}. You must declare a valid type or a value of a variable")
                 break
+    elif everything[0] == "vo":
+        if "=" in everything[1]:
+            operation = everything[1].split("=")
+            if operation[0] in variables.keys():
+                if "+" in operation[1]:
+                    sum = operation[1].split("+")
+                    if str(variables[operation[0]]).isdecimal():
+                        variables[operation[0]] = int(sum[0]) + int(sum[1])
+                    elif isfloat(str([operation[0]])):
+                        variables[operation[0]] = float(sum[0]) + float(sum[1])
+                    else:
+                        variables[operation[0]] = sum[0] + sum[1]
+
+
+        else:
+            print(f"Error at Line {i}. You must use = for variable assignament")
+            break
     else:
         print(f"Error at Line {i}. {everything[0]} is not a valid operation.")
         break
