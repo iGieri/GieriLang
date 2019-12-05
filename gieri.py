@@ -1,7 +1,9 @@
+# TODO: Trasformare le operazioni in classi
+
 from classes.variable import Variable  # Let's import the class for variable
 
 # Global variables
-FILE = "main.gieri"  # Let's define our source code TODO: define this global variable as argument
+FILE = "main.gieri"  # Let's define our source code TODO: definire questa variabile globale come argomento del programma
 
 # In this part we are reading the file
 codeFile = open(FILE, "r")
