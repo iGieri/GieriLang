@@ -31,14 +31,15 @@ for line in lines:
     elif everything[0] == "var":
         # Let's Check if it's an empty value
         full = False
-        for char in everything[1]:
-            if char == "=":
-                full = True
+        if "=" in everything[1]:
+            full = True
         if full:
+            # if it's a full variable we create a new instance of Variable class with the value after =
             var = everything[1].split("=")
             variables[var[0]] = Variable(var[0], var[1])
 
         else:
+            # else we are defining only the type of the Variable
             type = everything[1].split("@")
             try:
                 if type[1] == "int":
@@ -53,12 +54,16 @@ for line in lines:
             except IndexError:
                 print(f"Error at Line {i}. You must declare a valid type or a value of a variable")
                 break
-
+    
+    # Here we are introducing the concept of operations between Variables
     elif everything[0] == "vo":
+        # Now we are checking if all the code is OK
         if "=" in everything[1]:
             operation = everything[1].split("=")
             if operation[0] in variables.keys():
+                # Here we are checking which operator the coder want to use
                 if "+" in operation[1]:
+                    # Here we create a new instance of Variable overwriting the precendt
                     sum = operation[1].split("+")
                     if variables[operation[0]].type == "int":
                         variables[operation[0]] = Variable(operation[0], str(int(sum[0]) + int(sum[1])))
