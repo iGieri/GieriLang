@@ -1,4 +1,4 @@
 //: Primo Script della Storia scritto in GieriLang
 var:prova@int
-vo:prova=1+7
+vo:prova=7+8
 print:prova

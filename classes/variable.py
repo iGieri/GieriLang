@@ -1,4 +1,8 @@
+
 def isfloat(element):
+    """
+    This function check if a string is convertable to float
+    """
     try:
         float(element)
         return True
@@ -6,22 +10,33 @@ def isfloat(element):
         return False
 
 class Variable:
+    """
+    This class define a new variable
+    """
     def __init__(self, name, value):
         self.name = name
-        self.type = self.findType()
+        temp = value
+        self.type = self.findType(temp)
+        self.value = self.setValue(temp)
 
-    def findType(self):
-        if str(self.value).isdecimal():
+    def findType(self, value):
+        """
+        This method return the type of variable
+        """
+        if str(value).isdecimal():
             return "int"
-        elif isfloat(str(self.value)):
+        elif isfloat(str(value)):
             return "float"
         else:
             return "string"
-    def setValue(self):
+    
+    def setValue(self, value):
+        """
+        This method return the value of variable converted in the correct type
+        """
         if self.type == "int":
-            self.value = int(self.value)
+            return int(value)
         elif self.type == "float":
-            self.value = float(self.value)
+            return float(value)
         else:
-            self.value
-
+            return str(value)
