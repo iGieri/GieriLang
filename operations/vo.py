@@ -7,11 +7,25 @@ def vo():
         if operation[0] in stuff.variables.keys():
             # Here we are checking which operator the coder want to use
             if "+" in operation[1]:
-                # Here we create a new instance of Variable overwriting the precendt
+                # Here we create a new instance of Variable overwriting the precedent
                 sum = operation[1].split("+")
-                if stuff.variables[operation[0]].type == "int":
-                    stuff.variables[operation[0]] = Variable(operation[0], str(int(sum[0]) + int(sum[1])))
-                elif stuff.variables[operation[0]].type == "float":
-                    stuff.variables[operation[0]] = Variable(operation[0], str(float(sum[0]) + float(sum[1])))
-                else:
-                    stuff.variables[operation[0]] = Variable(operation[0], str(sum[0] + sum[1]))
+                
+                totalSum = 0
+
+                for addend in sum:
+                    if addend in stuff.variables.keys():
+                        if stuff.variables[operation[0]].type == "int":
+                            totalSum += int(stuff.variables[addend].value)
+                        elif stuff.variables[operation[0]].type == "float":
+                            totalSum += float(stuff.variables[addend].value)
+                        else:
+                            totalSum += stuff.variables[addend].value
+                    else:
+                        if stuff.variables[operation[0]].type == "int":
+                            totalSum += int(addend)
+                        elif stuff.variables[operation[0]].type == "float":
+                            totalSum += float(addend)
+                        else:
+                            totalSum += addend
+
+                stuff.variables[operation[0]] = Variable(operation[0], str(totalSum))
