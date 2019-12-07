@@ -9,7 +9,7 @@ def vo():
             if "+" in operation[1]:
                 # Here we create a new instance of Variable overwriting the precedent
                 sum = operation[1].split("+")
-                
+
                 totalSum = 0
 
                 for addend in sum:
@@ -29,3 +29,4 @@ def vo():
                             totalSum += addend
 
                 stuff.variables[operation[0]] = Variable(operation[0], str(totalSum))
+

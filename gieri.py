@@ -4,7 +4,6 @@ GieriLang Interpreter,
 Written by Federico Gerardi aka Gieri
 
 MIT License
-
 """
 
 
@@ -51,5 +50,3 @@ for line in lines:
 
     for operation in operations:
         operation.start(everything)
-
-
