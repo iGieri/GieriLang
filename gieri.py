@@ -4,7 +4,6 @@ GieriLang Interpreter,
 Written by Federico Gerardi aka Gieri
 
 MIT License
-
 """
 
 
