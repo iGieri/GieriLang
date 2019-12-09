@@ -1,0 +1,4 @@
+.idea/*
+.vscode/*
+__pychache__/*
+venv/*
