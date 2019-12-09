@@ -9,12 +9,13 @@ MIT License
 
 import sys
 
-from classes.operation import Operation # Let's import the classe for operations
-from operations.print import printOP # Let's import print function
-from operations.comment import comment # Let's import comment function
-from operations.var import var # Let's import var function
-from operations import stuff # Module for changing data with other files
-from operations.vo import vo # Let's import vo function
+from classes.operation import Operation  # Let's import the classe for operations
+from operations.print import printOP  # Let's import print function
+from operations.comment import comment  # Let's import comment function
+from operations.var import var  # Let's import var function
+from operations import stuff  # Module for changing data with other files
+from operations.vo import vo  # Let's import vo function
+from operations.if_function import if_function  # Let's import if function
 
 # Global variables
 if sys.argv[1]:
@@ -31,14 +32,21 @@ lines = code.split("\n")  # We are splitting the lines of our source code in an 
 
 i = 0  # Init of the i variable
 
+stuff.numOfCondition = 0
+
+stuff.ifFlag = False
+
 variables = {}  # The register of all variable
 
 operations = [
     Operation("//", lambda: comment()),
     Operation("print", lambda: printOP()),
     Operation("var", lambda: var()),
-    Operation("vo", lambda: vo())
+    Operation("vo", lambda: vo()),
+    Operation("if", lambda: if_function())
 ]
+
+
 
 # In this for we are reading line per line all the source code
 for line in lines:
@@ -47,6 +55,7 @@ for line in lines:
 
     stuff.everything = everything
     stuff.variables = variables
-
+    if stuff.ifFlag:
+        continue
     for operation in operations:
         operation.start(everything)

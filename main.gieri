@@ -1,10 +1,8 @@
 //: Primo Script della Storia scritto in GieriLang
-var:prova@float
-var:pippo=3
-var:luca=6
-var:mattia=7
-vo:prova=pippo+luca+mattia
-vo:prova=prova/3
-print:prova
+var:prova=1
+var:prova2=3
+if:prova==prova2->1
+print:Hello World!
+print:Ciao Mondo!
 
 

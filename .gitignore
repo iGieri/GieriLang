@@ -1,4 +1,6 @@
 .idea/*
 .vscode/*
-__pychache__/*
+__pycache__/+
 venv/*
+operations/__pycache__/*
+classes/__pycache__/+
