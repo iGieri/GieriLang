@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    80% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.card {
+    text-align: center;
+    margin-top: 5vh;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+.card__img {
+    width: 20vh;
+    animation-name: moveInBottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.card__title-main {
+    font-size: 2.5rem;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
+    color: linear-gradient(#ffc04a, #ff6347)
+}
+
+.card__title-sub {
+    font-size: 1rem;
+    /* opacity: 0; */
+    color: #3a3a3a;
+    margin-bottom: 1.5vh;
+    animation-name: moveInTop;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: backwards;
+}
+
+i {
+    color: #ffbe4a !important;
+    animation: blinker 1s linear infinite;
+}

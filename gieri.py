@@ -1,5 +1,26 @@
+"""
+GieriLang Interpreter,
+
+Written by Federico Gerardi aka Gieri
+
+MIT License
+"""
+
+
+import sys
+
+from classes.operation import Operation # Let's import the classe for operations
+from operations.print import printOP # Let's import print function
+from operations.comment import comment # Let's import comment function
+from operations.var import var # Let's import var function
+from operations import stuff # Module for changing data with other files
+from operations.vo import vo # Let's import vo function
+
 # Global variables
-FILE = "main.gieri"  # Let's define our source code TODO: define this global variable as argument
+if sys.argv[1]:
+    FILE = sys.argv[1]  # Let's define our source code
+else:
+    FILE = "main.gieri"
 
 # In this part we are reading the file
 codeFile = open(FILE, "r")
@@ -12,68 +33,20 @@ i = 0  # Init of the i variable
 
 variables = {}  # The register of all variable
 
+operations = [
+    Operation("//", lambda: comment()),
+    Operation("print", lambda: printOP()),
+    Operation("var", lambda: var()),
+    Operation("vo", lambda: vo())
+]
+
 # In this for we are reading line per line all the source code
 for line in lines:
     i += 1
     everything = line.split(":")  # We are splitting the kind of operation from the operation
-    # Code to define comments with: //:
-    if everything[0] == "//" or everything[0] == "":
-        continue
-    # Code to define print function
-    elif everything[0] == "print":
-        if everything[1] in variables.keys():
-            print(variables[everything[1]])
-        else:
-            print(everything[1])
-    # Code to use variable
-    elif everything[0] == "var":
-        # Let's Check if it's an empty value
-        full = False
-        for char in everything[1]:
-            if char == "=":
-                full = True
-        if full:
-            var = everything[1].split("=")
-            if var[1].isdecimal():
-                variables[var[0]] = int(var[1])
-            elif isfloat(var[1]):
-                variables[var[0]] = float(var[1])
-            else:
-                variables[var[0]] = var[1]
 
-        else:
-            type = everything[1].split("@")
-            try:
-                if type[1] == "int":
-                    variables[type[0]] = 0
-                elif type[1] == "float":
-                    variables[type[0]] = 0.0
-                elif type[1] == "string":
-                    variables[type[0]] = ""
-                else:
-                    print(f"Error at Line {i}. {type[1]} is not a valid type.")
-                    break
-            except IndexError:
-                print(f"Error at Line {i}. You must declare a valid type or a value of a variable")
-                break
-    elif everything[0] == "vo":
-        if "=" in everything[1]:
-            operation = everything[1].split("=")
-            if operation[0] in variables.keys():
-                if "+" in operation[1]:
-                    sum = operation[1].split("+")
-                    if str(variables[operation[0]]).isdecimal():
-                        variables[operation[0]] = int(sum[0]) + int(sum[1])
-                    elif isfloat(str([operation[0]])):
-                        variables[operation[0]] = float(sum[0]) + float(sum[1])
-                    else:
-                        variables[operation[0]] = sum[0] + sum[1]
+    stuff.everything = everything
+    stuff.variables = variables
 
-
-        else:
-            print(f"Error at Line {i}. You must use = for variable assignament")
-            break
-    else:
-        print(f"Error at Line {i}. {everything[0]} is not a valid operation.")
-        break
-
+    for operation in operations:
+        operation.start(everything)
