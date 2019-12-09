@@ -9,12 +9,12 @@ MIT License
 
 import sys
 
-from classes.operation import Operation # Let's import the classe for operations
-from operations.print import printOP # Let's import print function
-from operations.comment import comment # Let's import comment function
-from operations.var import var # Let's import var function
-from operations import stuff # Module for changing data with other files
-from operations.vo import vo # Let's import vo function
+from classes.operation import Operation  # Let's import the classe for operations
+from operations.print import printOP  # Let's import print function
+from operations.comment import comment  # Let's import comment function
+from operations.var import var  # Let's import var function
+from operations import stuff  # Module for changing data with other files
+from operations.vo import vo  # Let's import vo function
 
 # Global variables
 if sys.argv[1]:
