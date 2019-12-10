@@ -34,6 +34,8 @@ i = 0  # Init of the i variable
 
 stuff.numOfCondition = 0
 
+stuff.nIf = 0
+
 stuff.ifFlag = False
 
 variables = {}  # The register of all variable
@@ -55,7 +57,10 @@ for line in lines:
 
     stuff.everything = everything
     stuff.variables = variables
-    if stuff.ifFlag:
+
+    if stuff.ifFlag and stuff.numOfCondition < stuff.nIf:
+        stuff.numOfCondition += 1
         continue
+
     for operation in operations:
         operation.start(everything)

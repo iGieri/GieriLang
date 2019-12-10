@@ -1,7 +1,7 @@
 //: Primo Script della Storia scritto in GieriLang
 var:prova=1
 var:prova2=3
-if:prova==prova2->1
+if:prova==prova2->2
 print:Hello World!
 print:Ciao Mondo!
 
