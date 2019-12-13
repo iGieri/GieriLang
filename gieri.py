@@ -16,6 +16,7 @@ from operations.var import var  # Let's import var function
 from operations import stuff  # Module for changing data with other files
 from operations.vo import vo  # Let's import vo function
 from operations.if_function import if_function  # Let's import if function
+from operations.input import input_function  # Let's import input function
 
 # Global variables
 if sys.argv[1]:
@@ -45,7 +46,8 @@ operations = [
     Operation("print", lambda: printOP()),
     Operation("var", lambda: var()),
     Operation("vo", lambda: vo()),
-    Operation("if", lambda: if_function())
+    Operation("if", lambda: if_function()),
+    Operation("input", lambda: input_function()),
 ]
 
 

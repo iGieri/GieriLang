@@ -1,8 +1,12 @@
 //: Primo Script della Storia scritto in GieriLang
-var:prova=1
-var:prova2=3
-if:prova==prova2->2
-print:Hello World!
-print:Ciao Mondo!
+var:test@int
+var:test2@int
+print:Insert the first number -->
+input:test
+print:Insert the second number -->
+input:test2
+
+if:test==test2->1
+print:The 2 numbers are identical
 
 
