@@ -1,5 +1,5 @@
 # GieriLang
-The hackerable language
+The Hackable language
 
 It is a really simple language, for everyone.
 
