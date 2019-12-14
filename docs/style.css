@@ -177,13 +177,13 @@ a {
     color: #3a3a3a;
 }
 
-.hackerable {
+.hackable {
     text-align: center;
     margin-top: 10vh;
     font-family: 'Montserrat', sans-serif;
 }
 
-.hackerable__title {
+.hackable__title {
     font-size: 1.5rem;
     font-weight: bolder;
     margin-bottom: 20px;
@@ -191,13 +191,13 @@ a {
     animation: moveInRight 1s ease-out 4s backwards;
 }
 
-.hackerable__logo {
+.hackable__logo {
     font-size: 14rem;
     color: #3a3a3a;
     animation: moveInOpacity 1s ease-out 4.5s backwards;
 }
 
-.hackerable__logo-text {
+.hackable__logo-text {
     position: relative;
     bottom: 14ch;
     /*background: -webkit-linear-gradient(left, #ffc04a, #ff6347);*/
@@ -214,7 +214,7 @@ a {
 
 /*TODO: Animazione colorata quando si va sopra con il mouse*/
 
-.hackerable__description {
+.hackable__description {
     margin-top: 20px;
     font-size: 1.1rem;
     animation: moveInTop 1s ease-out 5s backwards;
