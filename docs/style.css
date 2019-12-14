@@ -93,15 +93,31 @@ a {
     background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
     border-radius: 20px;
     animation: moveInOpacity 1s ease-out 2s backwards;
-    transition: transform .2s;
+    transition: all 0.2s ease-out;
 }
 
 .btn:hover {
-    transform: scale(50);
+    transform: scale(2);
 }
 
+.compatibility {
+    text-align: center;
+    margin-top: 5vh;
+    font-family: 'Montserrat', sans-serif;
+}
 
-i {
-    color: #ffbe4a !important;
-    animation: blinker 1s linear infinite;
+.compatibility__logo {
+    margin: 20px;
+    font-size: 2.5rem;
+    padding: 20px 25px;
+    border-radius: 150px;
+    color: white;
+    background-color: #3a3a3a;
+    animation: moveInOpacity 1s ease-out 2.5s backwards;
+}
+
+.compatibility__description {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    animation: moveInTop 1s ease-out 3s backwards;
 }
