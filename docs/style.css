@@ -69,6 +69,26 @@
     }
 }
 
+@keyframes toOrange {
+    from {
+        background: #3a3a3a;
+    }
+
+    to {
+        background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
+    }
+}
+
+@keyframes toGray {
+    from {
+        background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
+    }
+
+    to {
+        background: #3a3a3a;
+    }
+}
+
 a {
     text-decoration: none;
 }
@@ -130,6 +150,10 @@ a {
     animation: moveInRight 1s ease-out 2.5s backwards;
 }
 
+.compatibility__logos {
+    animation: moveInOpacity 1s ease-out 3s backwards;
+}
+
 .compatibility__logo {
     margin: 20px;
     font-size: 2.5rem;
@@ -137,7 +161,12 @@ a {
     border-radius: 150px;
     color: white;
     background-color: #3a3a3a;
-    animation: moveInOpacity 1s ease-out 3s backwards;
+    animation: toGray .3s;
+}
+
+.compatibility__logo:hover {
+    animation: toOrange .3s ease;
+    background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
 }
 
 .compatibility__description {
@@ -163,15 +192,27 @@ a {
 }
 
 .hackerable__logo {
-    font-size: 300px;
+    font-size: 14rem;
+    color: #3a3a3a;
+    animation: moveInOpacity 1s ease-out 4.5s backwards;
+}
+
+.hackerable__logo-text {
+    position: relative;
+    bottom: 14ch;
+    /*background: -webkit-linear-gradient(left, #ffc04a, #ff6347);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    color: #3a3a3a;
+    font-weight: bolder;
+    animation: moveInOpacity 1s ease-out 4.5s backwards;
+}
+
+.wrap {
     color: #3a3a3a;
 }
 
-.hackerable__logo-mini {
-    position: absolute;
-    left: 5%;
-    bottom: 2%;
-}
+/*TODO: Animazione colorata quando si va sopra con il mouse*/
 
 .hackerable__description {
     margin-top: 20px;
@@ -179,4 +220,5 @@ a {
     animation: moveInTop 1s ease-out 5s backwards;
     font-weight: bolder;
     color: #3a3a3a;
+    margin-bottom: 10vh;
 }
