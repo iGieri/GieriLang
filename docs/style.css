@@ -21,6 +21,22 @@
     }
 }
 
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 @keyframes moveInTop {
     0% {
         opacity: 0;
@@ -102,8 +118,16 @@ a {
 
 .compatibility {
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 10vh;
     font-family: 'Montserrat', sans-serif;
+}
+
+.compatibility__title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    color: #3a3a3a;
+    animation: moveInRight 1s ease-out 2.5s backwards;
 }
 
 .compatibility__logo {
@@ -113,11 +137,46 @@ a {
     border-radius: 150px;
     color: white;
     background-color: #3a3a3a;
-    animation: moveInOpacity 1s ease-out 2.5s backwards;
+    animation: moveInOpacity 1s ease-out 3s backwards;
 }
 
 .compatibility__description {
     margin-top: 20px;
     font-size: 1.1rem;
-    animation: moveInTop 1s ease-out 3s backwards;
+    animation: moveInTop 1s ease-out 3.5s backwards;
+    font-weight: bolder;
+    color: #3a3a3a;
+}
+
+.hackerable {
+    text-align: center;
+    margin-top: 10vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hackerable__title {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    color: #3a3a3a;
+    animation: moveInRight 1s ease-out 4s backwards;
+}
+
+.hackerable__logo {
+    font-size: 300px;
+    color: #3a3a3a;
+}
+
+.hackerable__logo-mini {
+    position: absolute;
+    left: 5%;
+    bottom: 2%;
+}
+
+.hackerable__description {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    animation: moveInTop 1s ease-out 5s backwards;
+    font-weight: bolder;
+    color: #3a3a3a;
 }
