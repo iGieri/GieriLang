@@ -18,10 +18,10 @@ from operations.vo import vo  # Let's import vo function
 from operations.if_function import if_function  # Let's import if function
 from operations.input import input_function  # Let's import input function
 
-# Global variables
-if sys.argv[1]:
+# Global variable
+try:
     FILE = sys.argv[1]  # Let's define our source code
-else:
+except:
     FILE = "main.gieri"
 
 # In this part we are reading the file
