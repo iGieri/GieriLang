@@ -6,7 +6,7 @@ input:test
 print:Insert the second number -->
 input:test2
 
-if:test==test2->1
+if:test==test2->1,1
 print:The 2 numbers are identical
-
+print:The 2 numbers aren't identical
 

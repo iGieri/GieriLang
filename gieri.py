@@ -35,9 +35,17 @@ i = 0  # Init of the i variable
 
 stuff.numOfCondition = 0
 
+stuff.numOfElse = 0
+
 stuff.nIf = 0
 
+stuff.nElse = 0
+
 stuff.ifFlag = False
+
+stuff.elseFlag = True
+
+stuff.lines = lines
 
 variables = {}  # The register of all variable
 
@@ -60,7 +68,7 @@ for line in lines:
     stuff.everything = everything
     stuff.variables = variables
 
-    if stuff.ifFlag and stuff.numOfCondition < stuff.nIf:
+    if (stuff.ifFlag and stuff.numOfCondition < stuff.nIf) or ((not stuff.elseFlag) and stuff.numOfElse < stuff.nElse):
         stuff.numOfCondition += 1
         continue
 
