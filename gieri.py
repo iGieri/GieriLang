@@ -33,6 +33,10 @@ lines = code.split("\n")  # We are splitting the lines of our source code in an 
 
 i = 0  # Init of the i variable
 
+definitveElseFlag = False
+
+stuff.isElse = False
+
 stuff.numOfCondition = 0
 
 stuff.numOfElse = 0
@@ -43,7 +47,7 @@ stuff.nElse = 0
 
 stuff.ifFlag = False
 
-stuff.elseFlag = True
+stuff.elseFlag = False
 
 stuff.lines = lines
 
@@ -58,8 +62,6 @@ operations = [
     Operation("input", lambda: input_function()),
 ]
 
-
-
 # In this for we are reading line per line all the source code
 for line in lines:
     i += 1
@@ -68,8 +70,19 @@ for line in lines:
     stuff.everything = everything
     stuff.variables = variables
 
-    if (stuff.ifFlag and stuff.numOfCondition < stuff.nIf) or ((not stuff.elseFlag) and stuff.numOfElse < stuff.nElse):
+    if stuff.ifFlag and stuff.numOfCondition < stuff.nIf:
         stuff.numOfCondition += 1
+        continue
+
+    if (not stuff.ifFlag) and stuff.numOfCondition < stuff.nIf:
+        stuff.numOfCondition += 1
+        definitveElseFlag = True
+        pass
+    elif not stuff.numOfCondition < stuff.nIf and stuff.isElse and definitveElseFlag:
+            stuff.elseFlag = True
+
+    if stuff.elseFlag and stuff.numOfElse < stuff.nElse:
+        stuff.numOfElse += 1
         continue
 
     for operation in operations:
