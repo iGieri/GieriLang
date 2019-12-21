@@ -9,6 +9,7 @@ def isfloat(element):
     except ValueError:
         return False
 
+
 class Variable:
     """
     This class define a new variable
@@ -27,6 +28,8 @@ class Variable:
             return "int"
         elif isfloat(str(value)):
             return "float"
+        elif isinstance(value, list):
+            return "array"
         else:
             return "string"
     
@@ -38,5 +41,7 @@ class Variable:
             return int(value)
         elif self.type == "float":
             return float(value)
+        elif self.type == "array":
+            return value
         else:
             return str(value)

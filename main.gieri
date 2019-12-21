@@ -10,3 +10,11 @@ if:test==test2->1,1
 print:The 2 numbers are identical
 print:The 2 numbers aren't identical
 
+print:ARRAY TEST !!!
+arr:test3->5
+arr:test3->0=Hack
+arr:test3->1=Gieri
+arr:test3->2=3.5
+arr:test3->3=5
+arr:test3->4=3.14
+print:test3

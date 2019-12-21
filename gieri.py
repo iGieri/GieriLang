@@ -6,6 +6,7 @@ Written by Federico Gerardi aka Gieri
 MIT License
 """
 
+#  TODO Rimettere gli errori
 
 import sys
 
@@ -17,6 +18,7 @@ from operations import stuff  # Module for changing data with other files
 from operations.vo import vo  # Let's import vo function
 from operations.if_function import if_function  # Let's import if function
 from operations.input import input_function  # Let's import input function
+from operations.arr import arr # Let's import the array declaretion function
 
 # Global variable
 try:
@@ -60,6 +62,7 @@ operations = [
     Operation("vo", lambda: vo()),
     Operation("if", lambda: if_function()),
     Operation("input", lambda: input_function()),
+    Operation("arr", lambda: arr())
 ]
 
 # In this for we are reading line per line all the source code
