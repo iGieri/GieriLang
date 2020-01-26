@@ -112,7 +112,7 @@ body {
     font-size: 1.7rem;
 }
 
-textarea {
+#editor {
     font-size: 1rem;
     margin-top: 3vh;
     background-color: #3a3a3a;
@@ -134,4 +134,8 @@ textarea {
     background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.print {
+    color: blue;
 }

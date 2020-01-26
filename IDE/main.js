@@ -12,7 +12,7 @@ function createWindow() {
 
   -
       win.loadFile('templates/index.html');
-}7
+}
 
 app.on("ready", createWindow);
 
