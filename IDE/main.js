@@ -1,0 +1,18 @@
+const electron = require("electron");
+const { app, BrowserWindow } = require('electron');
+
+function createWindow() {
+    let win = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+
+  -
+      win.loadFile('templates/index.html');
+}7
+
+app.on("ready", createWindow);
+
