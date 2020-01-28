@@ -136,6 +136,13 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-.print {
-    color: blue;
+.command {
+    background: -webkit-linear-gradient(left, #ffc04a, #ff6347);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#terminal {
+    width: 100%;
+    height: 5%;
 }
