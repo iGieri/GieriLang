@@ -23,7 +23,7 @@ from operations.arr import arr  # Let's import the array declaretion function
 from operations.for_function import for_function  # Let's import for function
 from operations.nothing import nothing  # Let's import the nothing function
 
-VERSION = "0.0.1"
+VERSION = "0.1-alpha"
 OS = platform.system()
 
 # Global variable
