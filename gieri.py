@@ -9,6 +9,7 @@ MIT License
 #  TODO Rimettere gli errori
 
 import sys
+import platform
 
 from classes.operation import Operation  # Let's import the classe for operations
 from operations.print import printOP  # Let's import print function
@@ -20,6 +21,9 @@ from operations.if_function import if_function  # Let's import if function
 from operations.input import input_function  # Let's import input function
 from operations.arr import arr # Let's import the array declaretion function
 
+VERSION = "0.0.1"
+OS = platform.system()
+
 # Global variable
 try:
     FILE = sys.argv[1]  # Let's define our source code
@@ -27,9 +31,13 @@ except:
     FILE = "main.gieri"
 
 # In this part we are reading the file
-codeFile = open(FILE, "r")
-code = codeFile.read()
-codeFile.close()
+try:
+    codeFile = open(FILE, "r")
+    code = codeFile.read()
+    codeFile.close()
+except FileNotFoundError:
+    print(f"GieriLang Interpreter Version: {VERSION} on {OS}")
+    sys.exit()
 
 lines = code.split("\n")  # We are splitting the lines of our source code in an array
 
