@@ -17,4 +17,5 @@ arr:test3->1=Gieri
 arr:test3->2=3.5
 arr:test3->3=5
 arr:test3->4=3.14
+arr:test3->6=4
 print:test3
