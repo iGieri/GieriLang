@@ -28,7 +28,8 @@ OS = platform.system()
 try:
     FILE = sys.argv[1]  # Let's define our source code
 except:
-    FILE = "main.gieri"
+    print(f"GieriLang Interpreter Version: {VERSION} on {OS}")
+    sys.exit()
 
 # In this part we are reading the file
 try:
@@ -36,8 +37,7 @@ try:
     code = codeFile.read()
     codeFile.close()
 except FileNotFoundError:
-    print(f"GieriLang Interpreter Version: {VERSION} on {OS}")
-    sys.exit()
+    raise FileNotFoundError("This file doesn't exist !")
 
 lines = code.split("\n")  # We are splitting the lines of our source code in an array
 
@@ -60,6 +60,8 @@ stuff.ifFlag = False
 stuff.elseFlag = False
 
 stuff.lines = lines
+
+stuff.commandFlag = False
 
 variables = {}  # The register of all variable
 
@@ -98,3 +100,6 @@ for line in lines:
 
     for operation in operations:
         operation.start(everything)
+        if not stuff.commandFlag:
+            raise Exception(f"The command you wrote in line {i+1} doesn't exist !")
+
