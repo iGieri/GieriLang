@@ -6,8 +6,7 @@ class Operation:
         self.function = lambda: function()
     def start(self, everything):
         if everything[0] == self.name:
-            stuff.commandFlag = True
+            stuff.commandFlag = False
             self.function()
         else:
-            stuff.commandFlag = False
-
+            stuff.commandFlag = True

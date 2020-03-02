@@ -6,10 +6,10 @@ Written by Federico Gerardi aka Gieri
 MIT License
 """
 
-#  TODO Rimettere gli errori
+#  TODO Rimettere gli errori - Work In Progress
 
-import sys
-import platform
+import sys  # System Library
+import platform  # OS Library
 
 from classes.operation import Operation  # Let's import the classe for operations
 from operations.print import printOP  # Let's import print function
@@ -19,7 +19,9 @@ from operations import stuff  # Module for changing data with other files
 from operations.vo import vo  # Let's import vo function
 from operations.if_function import if_function  # Let's import if function
 from operations.input import input_function  # Let's import input function
-from operations.arr import arr # Let's import the array declaretion function
+from operations.arr import arr  # Let's import the array declaretion function
+from operations.for_function import for_function  # Let's import for function
+from operations.nothing import nothing  # Let's import the nothing function
 
 VERSION = "0.0.1"
 OS = platform.system()
@@ -61,18 +63,20 @@ stuff.elseFlag = False
 
 stuff.lines = lines
 
-stuff.commandFlag = False
+stuff.commandFlag = True
 
 variables = {}  # The register of all variable
 
 operations = [
+    Operation("", lambda: nothing()),
     Operation("//", lambda: comment()),
     Operation("print", lambda: printOP()),
     Operation("var", lambda: var()),
     Operation("vo", lambda: vo()),
     Operation("if", lambda: if_function()),
     Operation("input", lambda: input_function()),
-    Operation("arr", lambda: arr())
+    Operation("arr", lambda: arr()),
+    Operation("for", lambda: for_function())
 ]
 
 # In this for we are reading line per line all the source code
@@ -101,5 +105,8 @@ for line in lines:
     for operation in operations:
         operation.start(everything)
         if not stuff.commandFlag:
-            raise Exception(f"The command you wrote in line {i+1} doesn't exist !")
+            break
+
+    if stuff.commandFlag:
+        raise Exception(f"The operation you wrote in line {i} doesn't exist !")
 
